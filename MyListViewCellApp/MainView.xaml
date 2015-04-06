@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MyListViewCellApp.MainView">
+	<TabbedPage.Children>
+
+		<ContentPage Title="TextCell" Padding="0, 20, 0, 0">
+			<ContentPage.Content>
+				<StackLayout>
+					<ListView ItemsSource="{Binding Items}">
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<TextCell Text="{Binding Title}" Detail="{Binding Description}">
+									<TextCell.ContextActions>
+										<MenuItem Text="Mais" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+										<MenuItem Text="Delete" IsDestructive="true" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+									</TextCell.ContextActions>
+								</TextCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</StackLayout>
+			</ContentPage.Content>
+		</ContentPage>
+
+		<ContentPage Title="ImageCell" Padding="0, 20, 0, 0">
+			<ContentPage.Content>
+				<StackLayout>
+					<ListView ItemsSource="{Binding Items}">
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<ImageCell Text="{Binding Title}" Detail="{Binding Description}" ImageSource="{Binding Image}">
+									<ImageCell.ContextActions>
+										<MenuItem Text="Mais" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+										<MenuItem Text="Delete" IsDestructive="true" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+									</ImageCell.ContextActions>
+								</ImageCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</StackLayout>
+			</ContentPage.Content>
+		</ContentPage>
+
+		<ContentPage Title="SwitchCell" Padding="0, 20, 0, 0">
+			<ContentPage.Content>
+				<StackLayout>
+					<ListView ItemsSource="{Binding Items}">
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<SwitchCell Text="{Binding Title}" On="{Binding Selected}">
+									<SwitchCell.ContextActions>
+										<MenuItem Text="Mais" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+										<MenuItem Text="Delete" IsDestructive="true" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+									</SwitchCell.ContextActions>
+								</SwitchCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</StackLayout>
+			</ContentPage.Content>
+		</ContentPage>
+
+		<ContentPage Title="EntryCell" Padding="0, 20, 0, 0">
+			<ContentPage.Content>
+				<StackLayout>
+					<ListView ItemsSource="{Binding Items}">
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<EntryCell Text="{Binding Title}">
+									<EntryCell.ContextActions>
+										<MenuItem Text="Mais" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+										<MenuItem Text="Delete" IsDestructive="true" Clicked="MenuItemClicked" CommandParameter="{Binding .}"></MenuItem>
+									</EntryCell.ContextActions>
+								</EntryCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</StackLayout>
+			</ContentPage.Content>
+		</ContentPage>
+
+		<ContentPage Title="ViewCell" Padding="0, 20, 0, 0">
+			<ContentPage.Content>
+				<StackLayout>
+					<ListView ItemsSource="{Binding Items}" RowHeight="150">
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<ViewCell>
+									<StackLayout Padding="5,0,0,0">
+										<Label Text="{Binding Title}"></Label>
+										<Entry Text="{Binding Description}"></Entry>
+										<DatePicker Format="dd/MM/yyyy"></DatePicker>
+										<Slider></Slider>
+									</StackLayout>
+								</ViewCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</StackLayout>
+			</ContentPage.Content>
+		</ContentPage>
+
+	</TabbedPage.Children>
+</TabbedPage>
